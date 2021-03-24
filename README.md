@@ -1,4 +1,6 @@
 # riiv
+collecting papers and writing code for a simulation of ri in an iv-context.
+
 ## literature
 contains related literature
 
