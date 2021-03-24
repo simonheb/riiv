@@ -1,0 +1,11 @@
+Package: riiv
+Type: Package
+Title: RI-based IV inferenec
+Version: 1.0
+Date: 2021-02-02
+Author: Simon Hess
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: More about what it does (maybe more than one line)
+License: What license is it under?
+Imports: Rcpp (>= 1.0.2)
+LinkingTo: Rcpp, RcppArmadillo, RcppParallel
