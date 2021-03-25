@@ -1,5 +1,5 @@
 # what is this?
-the folder structure that of an R-package. to compile the package in Rstudio run *[Build]>[Clean and rebuild]*. afterwards all (read: both) functions are avialable via `library(riiv)`
+the folder structure is that of an R-package. to compile the package in Rstudio run *[Build]>[Clean and rebuild]*. afterwards all (read: both) functions are avialable via `library(riiv)`
 
 # which files are important?
 
