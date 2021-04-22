@@ -6,6 +6,19 @@
 
 using namespace Rcpp;
 
+// huber_white_tsls_tstats
+arma::vec huber_white_tsls_tstats(arma::vec y, arma::mat x, arma::mat z);
+RcppExport SEXP _riiv_huber_white_tsls_tstats(SEXP ySEXP, SEXP xSEXP, SEXP zSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type y(ySEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type x(xSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type z(zSEXP);
+    rcpp_result_gen = Rcpp::wrap(huber_white_tsls_tstats(y, x, z));
+    return rcpp_result_gen;
+END_RCPP
+}
 // ranktestU
 int ranktestU(arma::vec y, arma::vec t);
 RcppExport SEXP _riiv_ranktestU(SEXP ySEXP, SEXP tSEXP) {
@@ -19,8 +32,8 @@ BEGIN_RCPP
 END_RCPP
 }
 // ri_iv_test_p
-double ri_iv_test_p(double b, arma::vec y, arma::vec x, arma::vec z, int r, int seed, bool ranktest);
-RcppExport SEXP _riiv_ri_iv_test_p(SEXP bSEXP, SEXP ySEXP, SEXP xSEXP, SEXP zSEXP, SEXP rSEXP, SEXP seedSEXP, SEXP ranktestSEXP) {
+double ri_iv_test_p(double b, arma::vec y, arma::vec x, arma::vec z, int r, int seed, int mode);
+RcppExport SEXP _riiv_ri_iv_test_p(SEXP bSEXP, SEXP ySEXP, SEXP xSEXP, SEXP zSEXP, SEXP rSEXP, SEXP seedSEXP, SEXP modeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -30,13 +43,14 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::vec >::type z(zSEXP);
     Rcpp::traits::input_parameter< int >::type r(rSEXP);
     Rcpp::traits::input_parameter< int >::type seed(seedSEXP);
-    Rcpp::traits::input_parameter< bool >::type ranktest(ranktestSEXP);
-    rcpp_result_gen = Rcpp::wrap(ri_iv_test_p(b, y, x, z, r, seed, ranktest));
+    Rcpp::traits::input_parameter< int >::type mode(modeSEXP);
+    rcpp_result_gen = Rcpp::wrap(ri_iv_test_p(b, y, x, z, r, seed, mode));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_riiv_huber_white_tsls_tstats", (DL_FUNC) &_riiv_huber_white_tsls_tstats, 3},
     {"_riiv_ranktestU", (DL_FUNC) &_riiv_ranktestU, 2},
     {"_riiv_ri_iv_test_p", (DL_FUNC) &_riiv_ri_iv_test_p, 7},
     {NULL, NULL, 0}
