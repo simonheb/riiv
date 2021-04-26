@@ -77,7 +77,13 @@ inverted_test_gridsearch_cis <-function(
     #plot p-values
     plot(setNames(as.data.frame(grid_values_and_corresponding_p_values),c("Treatment Effect","p-value")))
     #plot line to show the estimated CI
-    lines(ci,rep(1-level,2),col=2)
+    pseudoci=ci
+    if (pseudoci[1]==-Inf)
+      pseudoci[1]<-min(grid_values_and_corresponding_p_values[which(grid_values_and_corresponding_p_values!=-Inf)])
+    if (pseudoci[2]==Inf)
+      pseudoci[2]<-max(grid_values_and_corresponding_p_values[which(grid_values_and_corresponding_p_values!=Inf)])
+    lines(pseudoci,rep(1-level,2),col=4)
+    text(pseudoci[2],1-level,paste0(100*(1-level),"% CI",sep=""),pos=4,col=4)
   }
   #return
   return(list(ci=ci,grid_values_and_corresponding_p_values=grid_values_and_corresponding_p_values))

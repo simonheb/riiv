@@ -3,7 +3,6 @@ wild_iv<-function(b_hypothezised,   #the hypothezised treatment effect under the
                   x,y,z,            #the data x: endogeneous variable, y: outcome, z: instrument
                   r=1000,           #number of repetitions
                   seed=1234, mode=0) { #random seed and mode (mode is meaningless currently)
-
   #not sure if this is the approach that is also taken by Davidson & MacKinnon, but here I first impose the null and demean all vars
   #@Matt: does this make sense to you?
   set.seed(seed)
